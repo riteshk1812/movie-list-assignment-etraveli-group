@@ -53,12 +53,15 @@ const Movie = () => {
     const handleChange = (e) => {
         const value = e.target.value;
         setSearchTerm(value);
+        
         if (value.trim() !== '') {
             const filteredData = filterMovieState.filter(item =>
                 item.title.toLowerCase().includes(value.toLowerCase())
             );
-            setMovies(filteredData)
-        } 
+            setMovies(filteredData);
+        } else {
+            setMovies(filterMovieState);
+        }
     }
 
     // movie desc logic
